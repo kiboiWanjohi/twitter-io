@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@300&family=Edu+NSW+ACT+Foundation:wght@500&family=Mukta:wght@300&family=Ubuntu:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+    border-radius: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
