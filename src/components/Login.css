@@ -57,3 +57,8 @@ button:hover{
 i{
     padding-right: 4px;
 }
+@media (max-width: 768px) {        
+    .left {
+          display: none;
+        }
+    }
