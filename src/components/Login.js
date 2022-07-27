@@ -1,42 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useState } from "react";
-import Modal from "./Modal";
 function Login() {
-  const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
+  const [data, setData] = useState({});
+  const handleInput = (event) => {
+    let newInput = { [event.target.name]: event.target.value };
+    setData({ ...data, ...newInput });
+  };
+  const navigatetoSignUp = () => {
+    navigate("/");
+  };
+  const handleSubmit = () => {};
   return (
-    <div className="main">
-      <div className="left">
-        <h4>
-          <i class="fa-solid fa-magnifying-glass fa-lg"></i>Follow your
-          interests
-        </h4>
-
-        <h4>
-          <i class="fa-solid fa-people-pants fa-lg"></i>Hear what people are
-          talking about
-        </h4>
-
-        <h4>
-          <i class="fa-solid fa-comment fa-lg "></i>Join the conversation
-        </h4>
-      </div>
-      <div className="right">
-        <img src="" alt="" />
-        <h3>See what's happening in the world right now</h3>
-        <p>Join twitter today</p>
-        <button
-          className="openModal"
-          id="sign-up"
-          onClick={() => {
-            setOpenModal(true);
-          }}
-        >
-          Sign Up
+    <div className="modal">
+      <div className="modal-container">
+        <button className="close" onClick={navigatetoSignUp}>
+          {" "}
+          X{" "}
         </button>
+        <form action="">
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            id="email"
+            onChange={(event) => handleInput(event)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+            onChange={(event) => handleInput(event)}
+          />
+          <button id="btn" className="submit" onClick={handleSubmit}>
+            Log In
+          </button>
+        </form>
       </div>
-      {openModal && <Modal closeModal={setOpenModal} />}
     </div>
   );
 }
+
 export default Login;

@@ -1,0 +1,85 @@
+:root{--blue: #1e90ff;}
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: none;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: larger;
+    line-height: 2em;
+}
+.left{
+    border-right: 2px solid rgb(120, 120, 221);
+    background-color: var(--blue);
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.right{
+    width: 100%;
+    background-image: url("../images/Elon-High.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    border-radius: 100px solid var(--blue);
+    color: white;
+    background-color: rgb(56, 56, 56);
+    border-radius: 8px;
+    letter-spacing: 0.075em;
+    padding: 12px 30px 12px 30px;
+    text-align: center;
+    max-width: 360px;
+    width: 60%;
+}
+
+button:hover{
+    background-color: var(--blue);
+    cursor: pointer;
+}
+i{
+    padding-right: 4px;
+}
+@media (max-width: 768px) {        
+    .left {
+          display: none;
+        }
+    }
+
+input[type=password], select {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #1e90ff;
+  color: black;
+  font-size: large;
+}
+
+input[type=email] {
+  width: 70%;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #1e90ff;
+}
