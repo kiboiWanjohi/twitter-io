@@ -69,13 +69,14 @@ input[type=password], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  background-color: #1e90ff;
-  color: black;
+   background-color: #1e90ff; 
+  color: white;
   font-size: large;
 }
 
 input[type=email] {
   width: 70%;
+  font-size: large;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;

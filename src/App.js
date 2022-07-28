@@ -4,15 +4,15 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "firebase/auth";
+
 function App() {
   return (
     <Router>
       <div className="app">
         <Routes>
-          <Route exact path="/" element={<Signup />}></Route>
+          <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/Login" element={<Login />}></Route>
-          <Route path="/Home" element={<Home />}></Route>
+          <Route path="/Signup" element={<Signup />}></Route>
         </Routes>
       </div>
     </Router>
