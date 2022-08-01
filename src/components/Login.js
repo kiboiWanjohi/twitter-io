@@ -1,17 +1,28 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import React, { useState, useEffect } from "react";
+import { auth, logInWithEmailAndPassword } from "../Firebase/Firebase";
+
+import { useAuthState } from "react-firebase-hooks/auth";
 function Login() {
   const navigate = useNavigate();
-  const [data, setData] = useState({});
-  const handleInput = (event) => {
-    let newInput = { [event.target.name]: event.target.value };
-    setData({ ...data, ...newInput });
-  };
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
   const navigatetoSignUp = () => {
     navigate("/");
   };
-  const handleSubmit = () => {};
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    logInWithEmailAndPassword(email, password);
+  };
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    if (user) navigate("/");
+  }, [user, loading]);
   return (
     <div className="modal">
       <div className="modal-container">
@@ -25,16 +36,18 @@ function Login() {
             placeholder="Email"
             name="email"
             id="email"
-            onChange={(event) => handleInput(event)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Password"
             name="password"
             id="password"
-            onChange={(event) => handleInput(event)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <button id="btn" className="submit" onClick={handleSubmit}>
+          <button id="btn" className="submit" onClick={handleLogIn}>
             Log In
           </button>
         </form>

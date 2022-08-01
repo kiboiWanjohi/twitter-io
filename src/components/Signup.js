@@ -1,23 +1,42 @@
-import React from "react";
-import { useState } from "react";
+import { signInWithPopup } from "firebase/auth";
+import React, { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+
+import {
+  auth,
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from "../Firebase/Firebase";
+
 import "./Signup.css";
 const Signup = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState({});
-  const handleClick = (e) => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [user, loading, error] = useAuthState(auth);
+
+  const handleSignUp = (e) => {
     e.preventDefault();
+    if (!email) {
+      alert("Please enter email");
+      registerWithEmailAndPassword(email, password);
+    }
+    useEffect(() => {
+      if (loading) return;
+      if (user) navigate("/Home");
+    }, [user, loading]);
   };
   const navigateToLogin = () => {
     navigate("/Login");
   };
-  const handleSignUp = (e) => {
+  const handleSignInWithGoogle = (e) => {
     e.preventDefault();
+    useEffect(() => {signInWithPopup()}, [email, password])
   };
-  const handleInput = (event) => {
-    let newInput = { [event.target.name]: event.target.value };
-    setData({ ...data, ...newInput });
-  };
+
   return (
     <div className="main">
       <div className="left">
@@ -43,18 +62,18 @@ const Signup = () => {
           placeholder="Email"
           name="email"
           id="email"
-          onChange={(event) => handleInput(event)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
           name="password"
           id="password"
-          onChange={(event) => handleInput(event)}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <button onClick={handleClick}>Sign Up</button>
+        <button onClick={handleSignUp}>Sign Up</button>
         <p>or</p>
-        <button onClick={handleSignUp}>Sign Up With Google</button>
+        <button onClick={handleSignInWithGoogle}>Sign Up With Google</button>
         <p>Already have an account ??</p>
         <button onClick={navigateToLogin}>Login</button>
       </div>
