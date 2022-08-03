@@ -5,6 +5,12 @@ import { logout } from "../Firebase/Firebase";
 import "./Home.css";
 import twitter from "../images/twitters.png";
 function Home() {
+  const [tweet, setTweet] = useState("");
+  const handleTweet = (e) => {
+    e.preventDefault();
+    const newTweet = { tweet };
+    console.log(newTweet);
+  };
   const twitLonger = (e) => {
     e.preventDefault();
     const input = document.getElementById("tweet");
@@ -22,6 +28,7 @@ function Home() {
   if (!user) {
     navigate("/Login");
   }
+
   return (
     <div className="Home">
       <div className="sidebar">
@@ -40,15 +47,23 @@ function Home() {
         {" "}
         <h4>Home</h4>
         <div className="tweetbox">
-          <form action="submit">
-            {/* avatar icon */}
-            <input placeholder="What's happening" type="text" id="tweet" />
+          <form onSubmit={handleTweet}>
+            {/* avatar icon user.photoURL*/}
+
+            <input
+              placeholder="What's happening"
+              type="text"
+              id="tweet"
+              value={tweet}
+              onChange={(e) => setTweet(e.target.value)}
+            />
             <button id="twitLonger" onClick={twitLonger}>
               TwitLonger
             </button>
           </form>
-          <button>Tweet</button>
+          <button onClick={handleTweet}>Tweet</button>
         </div>
+        <p>{tweet}</p>
       </div>
     </div>
   );
