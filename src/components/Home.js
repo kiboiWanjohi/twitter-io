@@ -4,6 +4,7 @@ import AuthContext from "../Firebase/AuthContext";
 import { logout } from "../Firebase/Firebase";
 import "./Home.css";
 import twitter from "../images/twitters.png";
+import adduser from "../images/adduser.png";
 function Home() {
   const [tweet, setTweet] = useState("");
   const handleTweet = (e) => {
@@ -33,12 +34,15 @@ function Home() {
     <div className="Home">
       <div className="sidebar">
         <img src={twitter} alt="twitter" id="twitter-logo" />
-        <i class="fa-solid fa-house"></i>
-        <h3>Home</h3>
-        <i class="fa-solid fa-hashtag"></i>
-        <h3>Explore</h3>
-        <i class="fa-solid fa-message"></i>
-        <h3>Messages</h3>
+        <h3>
+          <i class="fa-solid fa-house"></i>Home
+        </h3>
+        <h3>
+          <i class="fa-solid fa-hashtag"></i>Explore
+        </h3>
+        <h3>
+          <i class="fa-solid fa-message"></i>Messages
+        </h3>
         <button id="log-out" onClick={handleLogout}>
           Log Out
         </button>
@@ -48,8 +52,7 @@ function Home() {
         <h4>Home</h4>
         <div className="tweetbox">
           <form onSubmit={handleTweet}>
-            {/* avatar icon user.photoURL*/}
-
+            <img src={adduser} alt="user-icon" id="user-icon" />
             <input
               placeholder="What's happening"
               type="text"
@@ -63,7 +66,6 @@ function Home() {
           </form>
           <button onClick={handleTweet}>Tweet</button>
         </div>
-        <p>{tweet}</p>
       </div>
     </div>
   );

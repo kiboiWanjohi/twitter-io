@@ -1,8 +1,12 @@
 .Home{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3px;
 }
 .sidebar{
-    display: grid;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
 }
 #twitter-logo{
     max-width: 70px;
@@ -17,6 +21,7 @@ h3:hover{
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+    float: right;
 }
 #twitLonger{margin-top: 0;}
 .longTweet{
@@ -27,4 +32,9 @@ h3:hover{
     border-radius: 6px;
     color: white;
     font-size: large;
+}
+#user-icon{
+    max-height: 22px;
+    position: absolute;
+    float: left;
 }
