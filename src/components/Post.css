@@ -9,3 +9,14 @@
   justify-content: space-between;
   margin-top: 10px;
 }
+.post-header h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.post-body {
+  flex: 1;
+  padding: 10px;
+}
+.post-badge {
+  font-size: 14px;
+}
