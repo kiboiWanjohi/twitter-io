@@ -5,7 +5,8 @@ import {
   TwitterShareButton,
   TwitterTweetEmbed,
 } from "react-twitter-embed";
-import { SearchIcon } from "@mui/icons-material";
+// import { SearchIcon } from "@mui/icons-material";
+import SearchIcon from "@mui/icons-material/Search";
 const Widgets = () => {
   return (
     <div className="widgets">

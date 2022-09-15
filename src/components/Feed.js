@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Twitterdodge from "../images/Twitterdodge.jpg";
 import "./Feed.css";
 import Post from "./Post";
 import Tweetbox from "./Tweetbox";
+import db from "./Firebase";
 const Feed = () => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() =>
+    // run code on load
+    {
+      db.collection("posts").onSnapshot((snapshot) => {
+        setPosts(snapshot.map((doc) => doc.data()));
+      });
+    }, []);
   return (
     <div className="feed">
       {/* header */}
@@ -12,7 +22,15 @@ const Feed = () => {
       {/* tweetbox */}
       <Tweetbox />
       {/* posts */}
-      <Post />
+      {posts.map((post) => {
+        <Post
+          displayName={post.displayName}
+          userName={post.userName}
+          verified={post.verified}
+          text={post.text}
+          avatar={post.avatar}
+        />;
+      })}
     </div>
   );
 };

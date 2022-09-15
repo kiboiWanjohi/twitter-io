@@ -1,3 +1,29 @@
 .widgets {
   flex: 0.3;
 }
+.widgets-input {
+  display: flex;
+  background-color: var(--twitter-background);
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  align-items: center;
+}
+.widgets-input input {
+  border: none;
+  background-color: var(--twitter-background);
+}
+.search-icon {
+  color: black;
+}
+.widgets-widgetsContainer {
+  margin-top: 12px;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: #f5f8fa;
+  border-radius: 20px;
+}
+.widgets-widgetsContainer h2 {
+  font-size: 19px;
+  font-weight: 800;
+}
