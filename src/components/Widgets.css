@@ -27,3 +27,9 @@
   font-size: 19px;
   font-weight: 800;
 }
+
+@media (max-width: 768px) {
+  .widgets {
+    flex: 1;
+  }
+}

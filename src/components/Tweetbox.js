@@ -16,6 +16,11 @@ const Tweetbox = () => {
     });
     setTweetMessage("");
   };
+  const twitLonger = (e) => {
+    e.preventDefault();
+    const tweetInput = document.getElementById("tweet-input");
+    tweetInput.classList.toggle("longTweet");
+  };
   return (
     <div className="tweetbox">
       <form action="">
@@ -26,10 +31,19 @@ const Tweetbox = () => {
             onChange={(e) => setTweetMessage(e.target.value)}
             type="text"
             placeholder="Enter your opinion"
+            id="tweet-input"
           />
         </div>
-        <Button onClick={sendTweet} type="submit" className="tweetbox-btn">
+        <Button
+          onClick={sendTweet}
+          type="submit"
+          id="tweet-btn"
+          className="tweetbox-btn"
+        >
           Tweet
+        </Button>
+        <Button type="submit" className="tweetbox-btn" onClick={twitLonger}>
+          TwtLongr
         </Button>
       </form>
     </div>

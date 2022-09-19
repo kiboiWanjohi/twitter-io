@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Twitterdodge from "../images/Twitterdodge.jpg";
+
 import "./Feed.css";
 import Post from "./Post";
 import Tweetbox from "./Tweetbox";
@@ -11,7 +11,7 @@ const Feed = () => {
     // run code on load
     {
       db.collection("posts").onSnapshot((snapshot) => {
-        setPosts(snapshot.map((doc) => doc.data()));
+        setPosts(snapshot.docs.map((doc) => doc.data()));
       });
     }, []);
   return (
@@ -22,18 +22,17 @@ const Feed = () => {
       </div>
       {/* tweetbox */}
       <Tweetbox />
-      {/* posts */}
+      {/* posts with smooth scroll */}
       <FlipMove>
-        {posts.map((post) => {
+        {posts.map((post) => (
           <Post
-            key={post.text}
             displayName={post.displayName}
             userName={post.userName}
             verified={post.verified}
             text={post.text}
             avatar={post.avatar}
-          />;
-        })}
+          />
+        ))}
       </FlipMove>
     </div>
   );

@@ -17,3 +17,14 @@ body {
   height: 100vh;
   /* max-width: 1300px; */
 }
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .feed {
+    flex: 1;
+  }
+  .widgets {
+    flex: 1;
+  }
+}
