@@ -5,7 +5,6 @@ import {
   TwitterShareButton,
   TwitterTweetEmbed,
 } from "react-twitter-embed";
-// import { SearchIcon } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 const Widgets = () => {
   return (
@@ -20,10 +19,10 @@ const Widgets = () => {
       <TwitterTweetEmbed tweetId="" />
       <TwitterTimelineEmbed
         sourceType="profile"
-        screenName=""
+        screenName="Damn_coder"
         options={{ height: 400 }}
       />
-      <TwitterShareButton url="" />
+      <TwitterShareButton url="https://twitter.com/Damn_coder/status/1572083818064121862" />
     </div>
   );
 };

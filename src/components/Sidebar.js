@@ -7,6 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ForumIcon from "@mui/icons-material/Forum";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import MessageIcon from "@mui/icons-material/Message";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
 import { Button } from "@mui/material";
 const Sidebar = () => {
@@ -18,7 +19,7 @@ const Sidebar = () => {
       <Sidebaroptions active text="Home" Icon={HomeIcon} />
       <Sidebaroptions text="Explore" Icon={SearchIcon} />
       <Sidebaroptions text="Notifications" Icon={CircleNotificationsIcon} />
-      <Sidebaroptions text="Notifications" Icon={CircleNotificationsIcon} />
+      <Sidebaroptions text="Messages" Icon={MessageIcon} />
       <Sidebaroptions text="Bookmarks" Icon={ForumIcon} />
       <Sidebaroptions text="Profile" Icon={AccountBoxIcon} />
       <Sidebaroptions text="More" Icon={MoreHorizIcon} />
